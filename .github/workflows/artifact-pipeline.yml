@@ -1,0 +1,14 @@
+name: artifact-pipeline
+on:
+  workflow_dispatch:
+jobs:
+  publish-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: produce evidence file
+        run: echo "OCTO-4711 evidence snapshot" > evidence.txt
+      - name: upload evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-pack
+          path: evidence.txt
